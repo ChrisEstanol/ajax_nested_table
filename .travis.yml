@@ -5,7 +5,7 @@ script: rspec spec
 
 notifications:
   email:
-    - [hi@chrisestanol.com](mailto:hi@chrisestanol.com)
+    - hi@chrisestanol.com
 
 branches:
   only:
