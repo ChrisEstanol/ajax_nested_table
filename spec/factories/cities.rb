@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :city do
-    name "MyString"
-    population 1
-    country nil
+    association :country
+    name { Faker::Name.name }
+    population {Faker::Number.number(7)}
   end
 end

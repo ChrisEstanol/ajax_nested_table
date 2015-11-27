@@ -2,19 +2,20 @@ require 'rails_helper'
 
 describe Country do
   it "is valid with a name and a population number" do
-    country = Country.new
-    country.name = "France"
-    country.population = 60000000
+    country = build(:country)
     expect(country).to be_valid
   end
   it "is invalid without a name" do
-    country = Country.new(name: nil)
+    country = build(:country, name: nil)
     country.valid?
     expect(country.errors[:name]).to include("can't be blank")
   end
   it "is invalid without a population number" do
-    country = Country.new(population: nil)
+    country = build(:country, population: nil)
     country.valid?
     expect(country.errors[:population]).to include("can't be blank")
+  end
+  it "has a valid factory" do
+    expect(build(:country)).to be_valid
   end
 end
