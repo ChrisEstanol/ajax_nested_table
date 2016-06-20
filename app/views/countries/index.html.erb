@@ -1,0 +1,24 @@
+<%= link_to 'New city', new_city_path, class: "btn btn-primary btn-large pull-right" %>
+<%= link_to 'New country', new_country_path, class: "btn btn-primary btn-large pull-right" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>id</th>
+      <th>Name</th>
+      <th>Population</th>
+    </tr>
+  </thead>
+<% @countries.each do |country| %>
+  <tbody>
+      <tr>
+        <td><%= link_to '+', countries_cities_path(country), remote: true, id: country.name %></td>
+        <td><%= country.id %></td>
+        <td><%= country.name %></td>
+        <td><%= country.population %></td>
+      </tr>
+  </tbody>
+  <tbody id='cities_<%= country.id %>' style='display: none'></tbody>
+<% end %>
+</table>
